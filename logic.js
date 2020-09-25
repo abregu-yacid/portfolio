@@ -53,6 +53,7 @@ class SectionPortfolio{
         this.year = obj.year;
         this.description = obj.description;
         this.selectors = [];
+        this.buttons = obj.buttons?obj.buttons:[] ;
     }
     buildUI(){
         this.build("#grid-general-ui");
@@ -74,6 +75,10 @@ class SectionPortfolio{
                     .append($("<div>",{class:"year-shower",html:this.year})))
             .append($("<p>",{html:this.description}))
             .append(buttonShower)));
+
+        this.buttons.forEach(function(val){
+            buttonShower.append($("<button>",{html:val.title,click:val.click}));
+        });
         //buttonShower.append($("<button>",{html:"Preview"}));
         this.images = this.images.map(x => $("<img>",{src:"images/"+this.directory+"/"+x}));
         this.images
@@ -166,6 +171,12 @@ function insertUX(){
             " to help them crop their images using a fixed square, a circle or a variable rectangle as cropping frames", 
         directory:"projects",year:2020,
             images:["img5.png"]},
+        {title:"Therapy Template",
+        description:"A template I developed and design to be used as a way to "+
+            " conect people with professional therapists.", 
+        directory:"projects",year:2020,
+        buttons:[{title:"Visit website",click:makeRedirectTo("https://abregu-yacid.github.io/therapy/")}],
+            images:["img6.png"]},
         
     ];
     
@@ -178,4 +189,9 @@ function insertUX(){
     listFrontEnd
     .map(z => new SectionPortfolio(z))
     .forEach(y => y.buildFrontEnd())
+}
+function makeRedirectTo(link){
+    return function(){
+        window.open(link);
+    }
 }
