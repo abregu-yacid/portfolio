@@ -163,7 +163,8 @@ function insertUX(){
         description:"Is a web application developed by <a target='_blank' href='https://aswan.pe'>Aswan Technologies</a>. "+
         " While I worked there, I designed, developed, and analyzed safety software to comply with law requirements for "+
         "medium-sized companies. Contributed as key developer maintaining "+
-        "coding standards and leading 2 junior developers .", 
+        "coding standards and leading 2 junior developers. <br>"+
+        "Recomendation letters: <a href='./Info_Clients (English).docx' download>English</a>   <a target='_blank' href='./Info_Clientes (Spanish).pdf' download>Spanish</a>", 
         directory:"projects",year:2017,
             images:["gosst.png","aswan.jpg"]},
         {id:"divs",title:"Image Cropper",
